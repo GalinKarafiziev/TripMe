@@ -8,11 +8,22 @@
 
 import UIKit
 
+struct Course{
+    
+    let id: Int
+    let name: String
+    let link: String
+    let imageUrl: String
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let myCourse = Course(id: 1, name: "myCourse", link: "myLink", imageUrl: "Url link")
+        print(myCourse)
     }
 
 
