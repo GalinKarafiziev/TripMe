@@ -15,10 +15,9 @@ class ProductListController: UITableViewController {
     var products = [String]()
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if trip?.category == "Business trip"
+        if trip?.category == "Road trip"
         {
         products = ["bla"]
         }

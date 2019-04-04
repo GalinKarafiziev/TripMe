@@ -61,7 +61,11 @@ class TripsController: UITableViewController {
                 return
         }
         tripViewController.trip = trips[index]
+        
+        
     }
+    
+    
     
     
     

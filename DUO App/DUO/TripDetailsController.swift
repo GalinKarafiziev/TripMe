@@ -17,6 +17,7 @@ class TripDetailsController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +29,25 @@ class TripDetailsController: UIViewController {
         
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tripViewController = segue.destination as? ProductListController,
+            let trip = self.trip
+            else {
+                return
+        }
+        
+        tripViewController.trip = trip
+        
+        }
+        
+}
     
+        
+        
+        
+        
+    
+
     
     
     
@@ -43,4 +62,4 @@ class TripDetailsController: UIViewController {
     }
     */
 
-}
+
