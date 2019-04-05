@@ -52,6 +52,16 @@ class ProductListController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tripView = segue.destination as? TripDetailsController,
+            let trip = self.trip
+            else {
+                return
+        }
+        
+        tripView.trip = trip
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
