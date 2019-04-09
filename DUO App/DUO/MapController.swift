@@ -1,41 +1,57 @@
 //
-//  MapController.swift
-//  DUO
+//  ViewController.swift
+//  iOSMapSearchKit
 //
-//  Created by Student on 09/03/2019.
-//  Copyright © 2019 Student. All rights reserved.
+//  Created by issd on 21/03/2019.
+//  Copyright © 2019 issd. All rights reserved.
 //
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapController: UIViewController, MKMapViewDelegate {
-
+class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    
+    let locationManager = CLLocationManager()
+    var initialLocation = CLLocation(latitude: 51.44083, longitude: 5.47778)
+    let searchRadius: CLLocationDistance = 1700
+  
     @IBOutlet weak var mapView: MKMapView!
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    
-    let initialLocation = CLLocation(latitude: 52.3740300, longitude: 4.8896900)
-    let searchRadius: CLLocationDistance = 2000
+    @IBAction func searchOnValueAction(_ sender: Any) {
+        mapView.removeAnnotations(mapView.annotations)
+        
+        searchInMap()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        
+        locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled()
+        {
+            
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
         
         mapView.delegate = self
-        
         
         let coordinateRegion = MKCoordinateRegion.init(center: initialLocation.coordinate, latitudinalMeters: searchRadius * 2.0, longitudinalMeters: searchRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
         
-        
         searchInMap()
-        // Do any additional setup after loading the view.
+        
     }
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first{
+            print(location.coordinate)
+            
+        }
+    }
     func searchInMap() {
         // 1
         let request = MKLocalSearch.Request()
@@ -52,7 +68,6 @@ class MapController: UIViewController, MKMapViewDelegate {
             }
         })
     }
-    
     func addPinToMapView(title: String?, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         if let title = title {
             let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -62,4 +77,7 @@ class MapController: UIViewController, MKMapViewDelegate {
             
             mapView.addAnnotation(annotation)
         }
-    }}
+    }
+}
+
+

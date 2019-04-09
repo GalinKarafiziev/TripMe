@@ -26,6 +26,7 @@
 		3FB32F3522293DBB0047E4F3 /* DUOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB32F3422293DBB0047E4F3 /* DUOUITests.swift */; };
 		3FCEF4572244DA9A008B3F74 /* TripDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCEF4562244DA9A008B3F74 /* TripDetailsController.swift */; };
 		3FCEF459224501FD008B3F74 /* CityPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCEF458224501FD008B3F74 /* CityPickerController.swift */; };
+		83121203225CDCA000552F95 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83121202225CDCA000552F95 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		3FB32F3622293DBB0047E4F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FCEF4562244DA9A008B3F74 /* TripDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsController.swift; sourceTree = "<group>"; };
 		3FCEF458224501FD008B3F74 /* CityPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerController.swift; sourceTree = "<group>"; };
+		83121202225CDCA000552F95 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83121203225CDCA000552F95 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +108,7 @@
 				3FB32F2822293DBB0047E4F3 /* DUOTests */,
 				3FB32F3322293DBB0047E4F3 /* DUOUITests */,
 				3FB32F1222293DBA0047E4F3 /* Products */,
+				83121201225CDCA000552F95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +163,14 @@
 				3FB32F3622293DBB0047E4F3 /* Info.plist */,
 			);
 			path = DUOUITests;
+			sourceTree = "<group>";
+		};
+		83121201225CDCA000552F95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83121202225CDCA000552F95 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +241,11 @@
 				TargetAttributes = {
 					3FB32F1022293DBA0047E4F3 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3FB32F2422293DBB0047E4F3 = {
 						CreatedOnToolsVersion = 10.1;

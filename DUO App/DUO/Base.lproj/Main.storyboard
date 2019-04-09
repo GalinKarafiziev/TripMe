@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hCV-XV-YqZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hCV-XV-YqZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,10 +13,12 @@
         <scene sceneID="9mA-pt-c9e">
             <objects>
                 <tabBarController id="hCV-XV-YqZ" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KNN-zp-83S">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="KNN-zp-83S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="0.77619327910000002" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Mcd-ep-jE3" kind="relationship" relationship="viewControllers" id="aSu-lW-bc3"/>
@@ -26,7 +28,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgr-fU-NhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769" y="-528"/>
+            <point key="canvasLocation" x="769" y="-586"/>
         </scene>
         <!--Map-->
         <scene sceneID="ukz-aK-W92">
@@ -37,40 +39,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QA0-5g-gtN">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="606"/>
                             </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qs0-ps-iMB">
-                                <rect key="frame" x="127" y="27" width="121" height="26"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qs0-ps-iMB">
+                                <rect key="frame" x="16" y="33" width="343" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="NXV-FG-LRb"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Hotel"/>
                                     <segment title="Museum"/>
+                                    <segment title="Shop"/>
+                                    <segment title="Restaurant"/>
                                 </segments>
+                                <color key="tintColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <action selector="searchOnValueAction:" destination="IpE-9m-luL" eventType="valueChanged" id="ms9-yU-ABr"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qs0-ps-iMB" firstAttribute="centerX" secondItem="QA0-5g-gtN" secondAttribute="centerX" id="2qb-ou-FAn"/>
-                            <constraint firstItem="saZ-MV-zKW" firstAttribute="bottom" secondItem="qs0-ps-iMB" secondAttribute="bottom" constant="570" id="3n0-kz-BLJ"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="trailing" secondItem="saZ-MV-zKW" secondAttribute="trailing" id="4P9-Ql-fbL"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="top" secondItem="saZ-MV-zKW" secondAttribute="top" id="6qi-Oe-mKz"/>
-                            <constraint firstItem="qs0-ps-iMB" firstAttribute="top" secondItem="saZ-MV-zKW" secondAttribute="top" constant="3" id="9sE-E0-XuW"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="bottom" secondItem="saZ-MV-zKW" secondAttribute="bottom" id="RlI-IL-xVH"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="top" secondItem="saZ-MV-zKW" secondAttribute="top" id="SLh-Va-HWh"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="leading" secondItem="saZ-MV-zKW" secondAttribute="leading" id="W3I-bl-Rti"/>
-                            <constraint firstItem="saZ-MV-zKW" firstAttribute="trailing" secondItem="QA0-5g-gtN" secondAttribute="trailing" id="gcr-Cz-TLI"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="top" secondItem="saZ-MV-zKW" secondAttribute="top" id="m5S-2D-Swc"/>
-                            <constraint firstItem="qs0-ps-iMB" firstAttribute="leading" secondItem="saZ-MV-zKW" secondAttribute="leading" constant="127" id="n2E-Gh-ECF"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="leading" secondItem="saZ-MV-zKW" secondAttribute="leading" id="uQe-zg-qwi"/>
-                            <constraint firstItem="QA0-5g-gtN" firstAttribute="top" secondItem="saZ-MV-zKW" secondAttribute="top" id="xTi-ge-iOD"/>
+                            <constraint firstItem="qs0-ps-iMB" firstAttribute="leading" secondItem="saZ-MV-zKW" secondAttribute="leading" constant="16" id="88J-ZX-eXy"/>
+                            <constraint firstItem="QA0-5g-gtN" firstAttribute="leading" secondItem="7EH-XH-gdB" secondAttribute="leading" id="9be-Ad-KL3"/>
+                            <constraint firstItem="saZ-MV-zKW" firstAttribute="bottom" secondItem="qs0-ps-iMB" secondAttribute="bottom" constant="516" id="BQb-r2-nuJ"/>
+                            <constraint firstAttribute="trailing" secondItem="QA0-5g-gtN" secondAttribute="trailing" id="UZf-xD-hPy"/>
+                            <constraint firstItem="qs0-ps-iMB" firstAttribute="top" secondItem="saZ-MV-zKW" secondAttribute="top" constant="13" id="nvc-PY-VQd"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="QA0-5g-gtN" secondAttribute="bottom" constant="-52" id="rqo-C8-bKP"/>
+                            <constraint firstItem="QA0-5g-gtN" firstAttribute="top" secondItem="saZ-MV-zKW" secondAttribute="top" id="uJZ-Ca-ZcB"/>
+                            <constraint firstItem="saZ-MV-zKW" firstAttribute="trailing" secondItem="qs0-ps-iMB" secondAttribute="trailing" constant="16" id="vKr-Q1-qqi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="saZ-MV-zKW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="iconfinder_15_2135924 (2)" id="VEq-CQ-qhv">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="0.0"/>
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="mapView" destination="QA0-5g-gtN" id="ayN-92-jJJ"/>
-                        <outlet property="segmentedControl" destination="qs0-ps-iMB" id="did-pR-pDK"/>
+                        <outlet property="mapView" destination="QA0-5g-gtN" id="DlM-ci-B5i"/>
+                        <outlet property="segmentedControl" destination="qs0-ps-iMB" id="bUH-YF-zA2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLc-ar-YwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGY-Bx-aqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.79999999999995" y="984.55772113943033"/>
+            <point key="canvasLocation" x="1457" y="1030"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8ny-4d-80z">
@@ -271,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30A-K0-Niy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="985"/>
+            <point key="canvasLocation" x="2713" y="1154"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4QK-wP-yoL">
@@ -339,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3J6-a8-MCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="985"/>
+            <point key="canvasLocation" x="3465" y="1218"/>
         </scene>
         <!--Product List Controller-->
         <scene sceneID="EBV-L7-XEn">
@@ -381,7 +388,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvg-VQ-fiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456.8" y="985.45727136431788"/>
+            <point key="canvasLocation" x="708" y="1030"/>
         </scene>
         <!--Choose Category-->
         <scene sceneID="zFX-eY-qX0">
@@ -435,7 +442,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Itu-Xb-jQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fwp-tm-4T8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="215"/>
+            <point key="canvasLocation" x="3334" y="204"/>
         </scene>
         <!--Trip Add Controller-->
         <scene sceneID="5nZ-SD-fjo">
@@ -574,7 +581,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jx0-kg-vyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Unv-oF-1NA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="215"/>
+            <point key="canvasLocation" x="2246" y="215"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Dko-NW-W5q">
@@ -615,7 +622,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMo-Wr-gaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="-528"/>
+            <point key="canvasLocation" x="3119" y="-560"/>
         </scene>
         <!--City Picker Controller-->
         <scene sceneID="h7o-62-bk6">
@@ -660,7 +667,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEf-DU-Giu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jDY-ro-9DM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="-528"/>
+            <point key="canvasLocation" x="2279" y="-586"/>
         </scene>
         <!--Weather-->
         <scene sceneID="Xz5-BI-VSY">
@@ -674,6 +681,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Eindhoven" id="mht-0G-J8g">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="0.77619327910000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -727,4 +735,5 @@
         <segue reference="gZj-Kw-pXr"/>
         <segue reference="FQy-ir-b4e"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
