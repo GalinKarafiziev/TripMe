@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import SQLite
 
 class TripsController: UITableViewController {
-
+    var database: Connection!
+    let tripsTable = Table("trips")
+    
+    let id = Expression<Int>("id")
+    let name = Expression<String>("name")
+    let country = Expression<String>("country")
+    let city = Expression<String>("city")
+    let category = Expression<String>("category")
+    
     var trips = Trips.mockData()
     
     @IBAction func addTrip(_ segue: UIStoryboardSegue) {
         guard let tripsAddController = segue.source as? TripAddController,
-            let trip = tripsAddController.trip else {
+            let trip = tripsAddController.addTrip else {
                 return
         }
         trips.append(trip)
@@ -24,14 +33,43 @@ class TripsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        do{
+        let directory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let fileDest = directory.appendingPathComponent("trips").appendingPathExtension("sqlite3")
+        let database = try Connection(fileDest.path)
+        self.database = database;
+        } catch{
+            print(error);
+        }
+        self.CreateTable()
+       
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    
+    
+    
+    func CreateTable(){
+        let createTable = self.tripsTable.create { (table) in
+            table.column(self.id, primaryKey: true)
+            table.column(self.name)
+            table.column(self.country)
+            table.column(self.city)
+            table.column(self.category)
+        }
+        do{
+            try self.database.run(createTable)
+            print("waw")
+        } catch{
+            print(error)
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,19 +79,36 @@ class TripsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return trips.count
+        return self.queryAll().count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripsCell", for: indexPath) as! TripsCell
-        let trip = trips[indexPath.row]
+        let trip = self.queryAll()[indexPath.row]
         cell.textLabel?.text = trip.name
         cell.detailTextLabel?.text = trip.category
         return cell
+
+        
     }
     
-    
+    func queryAll() -> [Trip]{
+        var trippies = [Trip]()
+        do{
+            for trip in try database.prepare(self.tripsTable){
+                let newTrip = Trip(name: String(trip[name]),city: String(trip[city]), country: String(trip[country]), category: String(trip[category]))
+                trippies.append(newTrip)
+                print("\(newTrip.name)")
+            }
+        } catch{
+            print(error)
+        }
+        return trippies
+        
+        
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tripViewController = segue.destination as? TripDetailsController,
             let index = tableView.indexPathForSelectedRow?.row

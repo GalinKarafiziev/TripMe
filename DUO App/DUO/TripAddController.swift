@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import SQLite
 
 class TripAddController: UITableViewController {
+    
     var trip: Trip?
+    var database: TripsController?
     
     var category: String = "Chess" {
         didSet {
@@ -38,8 +41,16 @@ class TripAddController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
         if segue.identifier == "addTrip"{
-            trip = Trip(name: nameText.text!, city: cityText.text!, country: countryText.text!, category: category)
-        
+            //trip = Trip(name: nameText.text!, city: cityText.text!, country: countryText.text!, category: category)
+            
+            let tripAdd = self.database?.tripsTable.insert(((database?.id <- 1 ?? 0)!), (database?.name <- nameText.text ?? " ")!, (database?.country <- countryText.text ?? "")!, (database?.city <- cityText.text ?? "")!, (database?.category <- categoryText.text ?? "")!)
+            
+            do{
+                try self.database?.database.run(tripAdd!)
+                print("succ")
+            }catch{
+                print(error)
+            }
     }
         if segue.identifier == "pickCategory",
             let categoryController = segue.destination as? CategoryPickerController {
@@ -53,7 +64,7 @@ class TripAddController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
