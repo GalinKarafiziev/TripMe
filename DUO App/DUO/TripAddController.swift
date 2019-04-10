@@ -28,10 +28,17 @@ class TripAddController: UITableViewController {
         
     }
     
+    var country: String = "No country"{
+        didSet{
+            countryText.text = country
+        }
+    }
+    
     @IBOutlet weak var nameText: UITextField!
     
     @IBOutlet weak var categoryText: UILabel!
-    @IBOutlet weak var countryText: UITextField!
+
+    @IBOutlet weak var countryText: UILabel!
     @IBOutlet weak var cityText: UILabel!
     
     
@@ -61,6 +68,11 @@ class TripAddController: UITableViewController {
             cityView.selectedGame = city
         }
         
+        if segue.identifier == "showCity",
+            let countryView = segue.destination as? CountryListController{
+            countryView.selectedGame = country
+        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,3 +183,12 @@ extension TripAddController {
         }
     }
 }
+
+
+extension TripAddController{
+    @IBAction func unwindWithSelectedCountry(segue: UIStoryboardSegue) {
+        if let countryPicker = segue.source as? CountryListController,
+            let selectedGame = countryPicker.selectedGame {
+            country = selectedGame
+        }
+    }}

@@ -10,7 +10,7 @@ import UIKit
 
 class CityPickerController: UITableViewController {
 
-    var cities = ["Amsterdam"]
+    var cities = ["Amsterdam", "Eindhoven", "Rotterdam", "Groningen"]
     
     var selectedGame: String? {
         didSet {
