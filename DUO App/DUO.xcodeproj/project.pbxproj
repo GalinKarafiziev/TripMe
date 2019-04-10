@@ -27,6 +27,7 @@
 		3FB32F1F22293DBB0047E4F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB32F1D22293DBB0047E4F3 /* LaunchScreen.storyboard */; };
 		3FB32F2A22293DBB0047E4F3 /* DUOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB32F2922293DBB0047E4F3 /* DUOTests.swift */; };
 		3FB32F3522293DBB0047E4F3 /* DUOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB32F3422293DBB0047E4F3 /* DUOUITests.swift */; };
+		3FB9120E225DDEA700F99A13 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9120D225DDEA700F99A13 /* Database.swift */; };
 		3FCEF4572244DA9A008B3F74 /* TripDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCEF4562244DA9A008B3F74 /* TripDetailsController.swift */; };
 		3FCEF459224501FD008B3F74 /* CityPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCEF458224501FD008B3F74 /* CityPickerController.swift */; };
 		83121203225CDCA000552F95 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83121202225CDCA000552F95 /* MapKit.framework */; };
@@ -144,6 +145,7 @@
 		3FB32F3022293DBB0047E4F3 /* DUOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DUOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB32F3422293DBB0047E4F3 /* DUOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DUOUITests.swift; sourceTree = "<group>"; };
 		3FB32F3622293DBB0047E4F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FB9120D225DDEA700F99A13 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		3FCEF4562244DA9A008B3F74 /* TripDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsController.swift; sourceTree = "<group>"; };
 		3FCEF458224501FD008B3F74 /* CityPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerController.swift; sourceTree = "<group>"; };
 		83121202225CDCA000552F95 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -234,6 +236,7 @@
 				3F9CC97C2243908F0012EC9C /* ProductListController.swift */,
 				3FCEF4562244DA9A008B3F74 /* TripDetailsController.swift */,
 				3FCEF458224501FD008B3F74 /* CityPickerController.swift */,
+				3FB9120D225DDEA700F99A13 /* Database.swift */,
 			);
 			path = DUO;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				3F1265E12233CE970080221F /* Weather.swift in Sources */,
 				3FB32F1722293DBA0047E4F3 /* ViewController.swift in Sources */,
 				3FB32F1522293DBA0047E4F3 /* AppDelegate.swift in Sources */,
+				3FB9120E225DDEA700F99A13 /* Database.swift in Sources */,
 				3F9CC97D2243908F0012EC9C /* ProductListController.swift in Sources */,
 				3F1265E322340AF90080221F /* MapController.swift in Sources */,
 				3F23E9E1223BE04800D0B447 /* Trips.swift in Sources */,
