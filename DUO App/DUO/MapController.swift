@@ -34,7 +34,7 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         {
             
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             locationManager.startUpdatingLocation()
         }
         
@@ -44,11 +44,15 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         mapView.setRegion(coordinateRegion, animated: true)
         
         searchInMap()
+        mapView.showsUserLocation = true
+        mapView.showsScale = true
+        mapView.showsTraffic = true
         
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first{
             print(location.coordinate)
+            initialLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             
         }
     }
