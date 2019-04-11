@@ -14,13 +14,13 @@ class TripAddController: UITableViewController {
     var trip: Trip?
     var database = Database()
     
-    var category: String = "Chess" {
+    var category: String = "No category" {
         didSet {
             categoryText.text = category
         }
     }
     
-    var city: String = "Pick"{
+    var city: String = "No city"{
         didSet{
             cityText.text = city
             

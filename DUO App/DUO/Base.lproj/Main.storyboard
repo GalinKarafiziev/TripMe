@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hCV-XV-YqZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hCV-XV-YqZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,10 +39,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QA0-5g-gtN">
-                                <rect key="frame" x="0.0" y="20" width="375" height="606"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="650"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qs0-ps-iMB">
-                                <rect key="frame" x="16" y="33" width="343" height="26"/>
+                                <rect key="frame" x="16" y="33" width="343" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="NXV-FG-LRb"/>
                                 </constraints>
@@ -106,22 +106,26 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TripsCell" textLabel="xqb-C8-9dh" detailTextLabel="Dyu-DK-WSQ" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="kGc-64-nlr" customClass="TripsCell" customModule="DUO" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="64"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TripsCell" textLabel="xqb-C8-9dh" detailTextLabel="Dyu-DK-WSQ" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="kGc-64-nlr" customClass="TripsCell" customModule="DUO" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kGc-64-nlr" id="Gke-lz-bpV">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="63.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="73.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="netherlands-DG-Banner" translatesAutoresizingMaskIntoConstraints="NO" id="55R-1O-yG7">
+                                            <rect key="frame" x="188" y="0.0" width="153" height="74"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xqb-C8-9dh">
-                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="17" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dyu-DK-WSQ">
-                                            <rect key="frame" x="16" y="35.5" width="33" height="14.5"/>
+                                            <rect key="frame" x="16" y="40.5" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -129,6 +133,8 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.91979449987411499" green="0.77554410696029663" blue="0.5646672248840332" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="categoryTrip" destination="Dyu-DK-WSQ" id="jMc-LR-oZI"/>
                                     <outlet property="nameTrip" destination="xqb-C8-9dh" id="k3Z-UI-Kwz"/>
@@ -147,7 +153,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ZU-h4-5oj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="216"/>
+            <point key="canvasLocation" x="1456.8" y="215.44227886056973"/>
         </scene>
         <!--Trip Details Controller-->
         <scene sceneID="nng-qh-3ba">
@@ -765,9 +771,10 @@
         <image name="iconfinder_15_2135924 (2)" width="32" height="32"/>
         <image name="iconfinder_free-28_616649" width="32" height="32"/>
         <image name="iconfinder_weather-partly-sunny_216467" width="32" height="32"/>
+        <image name="netherlands-DG-Banner" width="216" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gz8-4D-gk1"/>
+        <segue reference="gZj-Kw-pXr"/>
         <segue reference="FQy-ir-b4e"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

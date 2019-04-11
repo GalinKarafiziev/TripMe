@@ -19,7 +19,13 @@ class ProductListController: UITableViewController {
         super.viewDidLoad()
         if trip?.category == "Road trip"
         {
-        products = ["bla"]
+            products = ["Spare tire", "Roadsite Emergency kit", "Book", "Extra baterry", "Map", "Spare money", "Good mood", "Sunprotectin cream"]
+        }
+        if trip?.category == "Business trip"{
+            products = ["Laptop", "Passport", "Documents", "Suitcase", "Cell phone charger", "Business card"]
+        }
+        if trip?.category == "Camping trip"{
+            products = ["Tent", "Fire making stuff", "Knife"]
         }
         
 

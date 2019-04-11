@@ -23,13 +23,20 @@ class TripsController: UITableViewController {
         //tableView.insertRows(at: [indexPath], with: .automatic)
         //self.tableView.reloadData()
     }
-    
+    lazy var refresh: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(TripsController.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         database.CreateTable()
-        trips = database.getTrips()
-        
-       //DispatchQueue.main.async { self.tableView.reloadData() }
+        database.getTrips()
+         self.tableView.addSubview(self.refresh)       //DispatchQueue.main.async { self.tableView.reloadData() }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,8 +45,14 @@ class TripsController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    
-    
+    @objc
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        database.getTrips()
+        //trips = database.getTrips()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
     
     // MARK: - Table view data source
 
@@ -51,14 +64,14 @@ class TripsController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return trips.count
+        return database.getTrips().count
         
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripsCell", for: indexPath) as! TripsCell
-        let trip = trips[indexPath.row]
+        let trip = database.getTrips()[indexPath.row]
         cell.textLabel?.text = trip.name
         cell.detailTextLabel?.text = trip.category
         
@@ -72,7 +85,7 @@ class TripsController: UITableViewController {
             else {
                 return
         }
-        tripViewController.trip = trips[index]
+        tripViewController.trip = database.getTrips()[index]
         
         
     }
